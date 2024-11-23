@@ -12,7 +12,6 @@ $(document).ready(function() {
         }
     });
 
-    // Search functionality
     $('#location-search').on('input', function() {
         const searchTerm = $(this).val().toLowerCase();
         $('.location-item').each(function() {
@@ -41,7 +40,7 @@ $(document).ready(function() {
 
     $('#confirm-teleport').click(function() {
         if (selectedLocation) {
-            $.post('https://af-test/teleport', JSON.stringify({
+            $.post('https://dxn-tpmenu/teleport', JSON.stringify({
                 x: selectedLocation.x,
                 y: selectedLocation.y,
                 z: selectedLocation.z
@@ -76,7 +75,7 @@ function showPreview(location) {
 function closeMenu() {
     $('#teleport-menu').addClass('hidden');
     $('#preview-modal').addClass('hidden');
-    $.post('https://af-test/closeMenu', JSON.stringify({}));
+    $.post('https://dxn-tpmenu/closeMenu', JSON.stringify({}));
 }
 
 function renderLocations(categories) {
@@ -104,7 +103,7 @@ function renderLocations(categories) {
         locationList.append(categoryHtml);
     });
     
-    // Reattach click handlers
+
     $('.location-item').click(function() {
         selectedLocation = {
             x: parseFloat($(this).data('x')),
