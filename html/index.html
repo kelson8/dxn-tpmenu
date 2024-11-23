@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Devoplx Teleport Menu</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <div id="teleport-menu" class="hidden">
+        <div class="menu-container">
+            <div class="menu-header">
+                <h2><i class="fas fa-map-marked-alt"></i> Teleport Menu</h2>
+                <button id="close-menu"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="location-search" placeholder="Search locations...">
+            </div>
+            <div class="location-list">
+                <div class="location-category">
+                    <h3>Popular Locations</h3>
+                    <div class="location-item" data-x="215.98" data-y="-810.16" data-z="30.72">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="location-info">
+                            <span class="location-name">Legion Square</span>
+                            <span class="location-desc">Central Los Santos</span>
+                        </div>
+                    </div>
+                    <div class="location-item" data-x="-1037.51" data-y="-2737.81" data-z="13.77">
+                        <i class="fas fa-plane"></i>
+                        <div class="location-info">
+                            <span class="location-name">LSIA Airport</span>
+                            <span class="location-desc">Los Santos International</span>
+                        </div>
+                    </div>
+                    <div class="location-item" data-x="300.30" data-y="-584.45" data-z="43.28">
+                        <i class="fas fa-hospital"></i>
+                        <div class="location-info">
+                            <span class="location-name">Pillbox Hospital</span>
+                            <span class="location-desc">Medical Center</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-category">
+                    <h3>Law Enforcement</h3>
+                    <div class="location-item" data-x="432.14" data-y="-982.41" data-z="30.71">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="location-info">
+                            <span class="location-name">Mission Row PD</span>
+                            <span class="location-desc">Police Department</span>
+                        </div>
+                    </div>
+                    <div class="location-item" data-x="1853.82" data-y="3686.43" data-z="34.27">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="location-info">
+                            <span class="location-name">Sandy Shores PD</span>
+                            <span class="location-desc">Police Department</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-category">
+                    <h3>Entertainment</h3>
+                    <div class="location-item" data-x="935.17" data-y="46.95" data-z="81.09">
+                        <i class="fas fa-dice"></i>
+                        <div class="location-info">
+                            <span class="location-name">Diamond Casino</span>
+                            <span class="location-desc">Casino & Resort</span>
+                        </div>
+                    </div>
+                    <div class="location-item" data-x="-1645.55" data-y="-1036.20" data-z="13.15">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <div class="location-info">
+                            <span class="location-name">Vespucci Beach</span>
+                            <span class="location-desc">Beach & Boardwalk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-category">
+                    <h3>Outside City</h3>
+                    <div class="location-item" data-x="1855.82" data-y="3679.48" data-z="33.27">
+                        <i class="fas fa-mountain"></i>
+                        <div class="location-info">
+                            <span class="location-name">Sandy Shores</span>
+                            <span class="location-desc">Blaine County</span>
+                        </div>
+                    </div>
+                    <div class="location-item" data-x="-2166.23" data-y="5196.07" data-z="16.88">
+                        <i class="fas fa-tree"></i>
+                        <div class="location-info">
+                            <span class="location-name">Mount Gordo</span>
+                            <span class="location-desc">Northern Mountains</span>
+                        </div>
+                    </div>
+                    <div class="location-item" data-x="-587.79" data-y="5284.75" data-z="70.26">
+                        <i class="fas fa-warehouse"></i>
+                        <div class="location-info">
+                            <span class="location-name">Paleto Bay</span>
+                            <span class="location-desc">Northern Town</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="preview-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Location Preview</h3>
+            <div id="preview-info">
+                <div class="preview-header">
+                    <i id="preview-icon" class="fas fa-map-marker-alt"></i>
+                    <div class="preview-text">
+                        <span id="preview-name">Location Name</span>
+                        <span id="preview-desc">Location Description</span>
+                    </div>
+                </div>
+                <div class="preview-coords">
+                    <span>X: <span id="preview-x"></span></span>
+                    <span>Y: <span id="preview-y"></span></span>
+                    <span>Z: <span id="preview-z"></span></span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button id="cancel-teleport">Cancel</button>
+                <button id="confirm-teleport">Confirm Teleport</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
