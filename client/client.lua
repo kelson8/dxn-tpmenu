@@ -1,5 +1,5 @@
 RegisterCommand('tpmenu', function()
-    TriggerServerEvent('dxn-tpmenut:requestLocations')
+    TriggerServerEvent('dxn-tpmenu:requestLocations')
 end, false)
 
 RegisterNetEvent('dxn-tpmenu:receiveLocations', function(locations)
