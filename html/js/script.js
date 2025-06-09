@@ -3,6 +3,7 @@ let selectedLocation = null;
 
 $(document).ready(function() {
     window.addEventListener('message', function(event) {
+        // Toggle
         if (event.data.type === 'toggleMenu') {
             $('#teleport-menu').toggleClass('hidden');
             if (!$('#teleport-menu').hasClass('hidden')) {
@@ -12,6 +13,7 @@ $(document).ready(function() {
         }
     });
 
+    // Search for locations in menu
     $('#location-search').on('input', function() {
         const searchTerm = $(this).val().toLowerCase();
         $('.location-item').each(function() {
@@ -21,6 +23,7 @@ $(document).ready(function() {
         });
     });
 
+    // Location name, description, and x, y, z display on preview
     $('.location-item').click(function() {
         selectedLocation = {
             x: parseFloat($(this).data('x')),
@@ -34,10 +37,12 @@ $(document).ready(function() {
         showPreview(selectedLocation);
     });
 
+    // Cancel button
     $('#cancel-teleport').click(function() {
         $('#preview-modal').addClass('hidden');
     });
 
+    // Confirm button
     $('#confirm-teleport').click(function() {
         if (selectedLocation) {
             $.post('https://dxn-tpmenu/teleport', JSON.stringify({
@@ -49,8 +54,10 @@ $(document).ready(function() {
         }
     });
 
+    // Close button
     $('#close-menu').click(closeMenu);
 
+    // Exit on escape key press
     $(document).keyup(function(e) {
         if (e.key === "Escape") {
             if (!$('#preview-modal').hasClass('hidden')) {
@@ -62,6 +69,9 @@ $(document).ready(function() {
     });
 });
 
+
+// Show the preview
+// Displays the name, description, and x, y, z display on preview.
 function showPreview(location) {
     $('#preview-icon').attr('class', location.icon);
     $('#preview-name').text(location.name);
@@ -72,12 +82,14 @@ function showPreview(location) {
     $('#preview-modal').removeClass('hidden');
 }
 
+// Close menu
 function closeMenu() {
     $('#teleport-menu').addClass('hidden');
     $('#preview-modal').addClass('hidden');
     $.post('https://dxn-tpmenu/closeMenu', JSON.stringify({}));
 }
 
+// Show a list of locations from the config
 function renderLocations(categories) {
     const locationList = $('.location-list');
     locationList.empty();

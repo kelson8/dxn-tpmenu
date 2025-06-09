@@ -1,5 +1,6 @@
 Config = {}
 
+-- TODO Setup permissions for this later
 Config.UseAcePerms = false -- Toggle ACE permission system
 
 Config.Categories = {
@@ -20,12 +21,28 @@ Config.Categories = {
                 coords = vector3(-1037.51, -2737.81, 13.77),
                 icon = "fa-plane",
                 ace_perm = "teleport.airport" -- Specific permission for this location
+            },
+
+            {
+                name = "Casino Outside",
+                desc = "Diamond Casino & Resort",
+                coords = vector3(917.58, 45.5, 80.9),
+                icon = "fa-map-marker-alt",
+            },
+
+            {
+                name = "Casino Interior",
+                desc = "Diamond Casino & Resort",
+                coords = vector3(2468.59, -279.71, -58.4),
+                icon = "fa-map-marker-alt",
             }
+
         }
     },
     {
         name = "Law Enforcement",
-        ace_perm = "teleport.police", -- Requires police permission to see category
+        ace_perm = nil,
+        -- ace_perm = "teleport.police", -- Requires police permission to see category
         locations = {
             {
                 name = "Mission Row PD",
